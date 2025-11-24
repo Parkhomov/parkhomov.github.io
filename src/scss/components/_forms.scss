@@ -1,0 +1,402 @@
+@use "../base/fonts";
+@use "../abstracts/variables";
+@use "../components/buttons";
+
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+
+  &[hidden] {
+    display: none;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+  }
+
+  &__content {
+    position: relative;
+    background: rgba(255, 255, 255, 1);
+    padding: 4rem;
+    width: 100%;
+    max-width: 480px;
+    height: 384px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    align-content: center;
+    font-family: fonts.$font-f;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      .password-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        input {
+          width: 100%;
+          padding-right: 2.5rem;
+        }
+
+        .toggle-password {
+          position: absolute;
+          right: 10px;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 4px;
+
+          img {
+            width: 20px;
+            height: 20px;
+            opacity: 0.6;
+            transition: opacity 0.2s ease;
+          }
+
+          &:hover img {
+            opacity: 1;
+          }
+        }
+      }
+
+      label {
+        font-weight: fonts.$font-w4;
+        font-size: 14px;
+      }
+
+      input {
+        padding: 0.6rem;
+        border: 1px solid #ccc;
+
+        &:focus {
+          outline: none;
+          border-color: variables.$color-p;
+        }
+      }
+
+      .form-options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.9rem;
+        font-family: fonts.$font-f;
+        margin-bottom: 10px;
+
+        .remember-me {
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+          font-weight: fonts.$font-w4;
+          color: rgba(114, 113, 116, 1);
+
+          input {
+            accent-color: #b03060;
+            color: rgba(114, 113, 116, 1);
+          }
+        }
+
+        .forgot-link {
+          color: variables.$color-p;
+          text-decoration: none;
+          font-weight: fonts.$font-w;
+          font-size: 9px;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .login-form__btn {
+        @extend %button-standart;
+        padding: 0.8rem;
+        background: variables.$color-p;
+        color: white;
+        font-weight: fonts.$font-w;
+        font-size: 14px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: 0.2s ease;
+
+        &:hover {
+          background: #8b2563;
+        }
+      }
+    }
+
+    .modal__close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+  }
+}
+
+.feedback {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  height: 701px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  padding: 40px 0;
+  font-family: fonts.$font-f;
+
+  &__image {
+    img {
+      max-width: 627px;
+      width: 100%;
+      height: 700px;
+      border-radius: 6px;
+      display: block;
+      object-fit: cover; 
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .success-text {
+      color: #28a745;
+      font-size: 16px;
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+
+    .success-text.visible {
+      opacity: 1;
+    }
+  }
+
+  &__header {
+    h2 {
+      font-size: 25px;
+      font-weight: fonts.$font-w;
+    }
+
+    p {
+      font-size: 17px;
+      font-weight: fonts.$font-w4;
+      margin: 34px auto 27px auto;
+    }
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    label {
+      font-weight: fonts.$font-w;
+      font-size: 18px;
+
+      span {
+        color: variables.$color-p;
+        font-family: fonts.$font-w;
+      }
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid gray;
+      border-radius: 4px;
+      font-size: 15px;
+      outline: none;
+      font-family: inherit;
+
+      &:focus {
+        border-color: #b26188;
+      }
+    }
+
+    textarea {
+      min-height: 149px;
+      resize: vertical;
+    }
+  }
+
+  &__submit {
+    @extend %button-standart;
+    width: 90px;
+    height: 40px;
+    padding: 10px 0;
+    background-color: variables.$color-p;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: fonts.$font-w;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+  .error-text {
+    color: red;
+    font-size: 14px;
+    margin-top: 4px;
+  }
+
+  .input-error {
+    border: 2px solid #d9534f !important;
+  }
+}
+
+
+@media (max-width: variables.$breakpoints-pc) {
+  .feedback {
+    padding: 60px 0;
+    gap: 56px;
+  }
+
+  .modal__content {
+    padding: 4rem 4.5rem;
+  }
+}
+
+
+@media (max-width: variables.$breakpoints-tablet) {
+  .modal__content {
+    max-width: 420px;
+    height: auto;
+    padding: 3rem 2.5rem;
+  }
+
+  .modal__content form {
+    gap: 0.8rem;
+
+    .form-options {
+      font-size: 0.85rem;
+    }
+  }
+
+  .feedback {
+    height: auto;
+    padding: 30px 20px;
+    gap: 24px;
+    grid-template-columns: 1.1fr 1.2fr;
+    align-items: stretch;
+  }
+
+  .feedback__image img {
+    height: 100%;
+    max-height: 500px;
+    object-fit: cover;
+  }
+
+  .feedback__header {
+    h2 {
+      font-size: 22px;
+    }
+
+    p {
+      font-size: 16px;
+      margin: 20px 0;
+    }
+  }
+
+  .feedback__group label {
+    font-size: 16px;
+  }
+}
+
+
+@media (max-width: variables.$breakpoints-phone) {
+  .modal {
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .modal__content {
+    margin-top: 3rem;
+    width: 100%;
+    max-width: none;
+    padding: 1.5rem 1.25rem;
+    height: auto;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+  }
+
+  .modal__content form {
+    gap: 0.75rem;
+
+    label {
+      font-size: 13px;
+    }
+
+    input {
+      font-size: 14px;
+    }
+
+    .form-options {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+    }
+
+    .login-form__btn {
+      width: 100%;
+      font-size: 13px;
+    }
+  }
+
+  .feedback {
+    grid-template-columns: 1fr;
+    height: auto;
+    padding: 20px 16px 40px;
+    gap: 20px;
+  }
+
+  .feedback__image {
+    /* картинка над формою, можна поміняти на order: 1 якщо треба вниз */
+    img {
+      width: 100%;
+      height: auto;
+      max-height: 320px;
+      object-fit: cover;
+    }
+  }
+
+  .feedback__header {
+    h2 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 15px;
+      margin: 16px 0 20px;
+    }
+  }
+
+  .feedback__group label {
+    font-size: 15px;
+  }
+
+  .feedback__submit {
+    width: 100%;
+    max-width: 200px;
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,80 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+@use '../base/fonts';
+
+%product-card {
+  position: relative;
+  width: 100%;            
+  max-width: 296px;       
+  overflow: hidden;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  cursor: alias;
+  text-align: left;
+  font-family: fonts.$font-f;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  &:hover {
+    transform: translateY(-10px);
+    border-color: variables.$color-p;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+
+  .sale {
+    @include mixins.Sale;
+  }
+
+  h3 {
+    font-size: 19px;
+    font-weight: fonts.$font-w;
+    margin: 1rem 0 0.5rem;
+    color: #1a1a1a;
+  }
+
+  .price {
+    @include mixins.Price;
+  }
+
+  button {
+    background-color: #c71e7e;
+    color: #fff;
+    border: none;
+    width: 156px;          
+    height: 40px;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: fonts.$font-w;
+    font-family: fonts.$font-f;
+    font-size: 17px;
+    transition: all 0.3s ease;
+  }
+}
+
+.product-card {
+  @extend %product-card;
+}
+
+
+@media (max-width: variables.$breakpoints-tablet) {
+  %product-card {
+    max-width: 100%;
+  }
+}
+
+
+@media (max-width: variables.$breakpoints-phone) {
+  %product-card {
+    button {
+      width: 100%;
+    }
+  }
+}

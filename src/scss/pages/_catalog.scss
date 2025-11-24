@@ -1,0 +1,464 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+@use '../base/fonts';
+@use "../components/buttons";
+
+.catalogContainer {
+    width: 100%;
+
+    &Content {
+        max-width: 1300px;
+        width: 100%;
+        height: auto;
+        margin: 60px auto;
+        display: grid;
+        grid-template-columns: minmax(300px, 910px) minmax(200px, 339px);
+        font-family: fonts.$font-f;
+        align-items: start;
+
+        .catalogControls {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            font-family: fonts.$font-f;
+
+            &-left {
+                p {
+                    font-size: 16px;
+                    color: variables.$color-t;
+                }
+            }
+
+            &-right {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+
+                .sort-select {
+                    border: 1px solid rgba(0, 0, 0, 0.2);
+                    padding: 8px 12px;
+                    margin-right: 60px;
+                    border-radius: 6px;
+                    font-size: 16px;
+                    background-color: #fff;
+                    cursor: pointer;
+                    font-family: fonts.$font-f;
+                    color: variables.$color-t;
+                }
+
+                .search-box {
+                    display: flex;
+                    align-items: center;
+                    border: 1px solid rgba(0, 0, 0, 0.2);
+                    border-radius: 6px;
+                    overflow: hidden;
+                    color: variables.$color-t;
+
+
+                    input {
+                        border: none;
+                        padding: 8px 10px;
+                        outline: none;
+                        font-size: 16px;
+                        font-family: fonts.$font-f;
+                    }
+
+                    .search-btn {
+                        background-color: #fff;
+                        border: none;
+                        padding: 8px 10px;
+                        cursor: pointer;
+                        font-size: 16px;
+
+                        &:hover {
+                            background-color: rgba(0, 0, 0, 0.05);
+                        }
+                    }
+                }
+            }
+        }
+
+        .pagination {
+            grid-column: 1 / 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin: 3rem 0;
+
+            button {
+                background-color: #fff;
+                border: 2px solid rgba(0, 0, 0, 0.2);
+                padding: 8px 16px;
+                border-radius: 6px;
+                font-size: 15px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-family: fonts.$font-f;
+                color: variables.$color-t;
+
+                &:hover {
+                    background-color: rgba(0, 0, 0, 0.05);
+                    border-color: variables.$color-p;
+                }
+            }
+
+            .page-numbers {
+                display: flex;
+                gap: 0.5rem;
+
+                .page {
+                    padding: 8px 12px;
+                    border-radius: 6px;
+                    cursor: pointer;
+
+                    &.active {
+                        background-color: #c71e7e;
+                        color: #fff;
+                    }
+
+                    &:hover:not(.active) {
+                        background-color: rgba(0, 0, 0, 0.05);
+                    }
+                }
+            }
+        }
+
+        .catalog-grid {
+            max-width: 910px;
+            width: 100%;
+            height: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            justify-items: center;
+
+            .catalogProduct-card {
+                position: relative;
+                width: 100%;
+                max-width: 296px;
+                height: 569px;
+                overflow: hidden;
+                background-color: #fff;
+                transition: all 0.3s ease;
+                border: 2px solid transparent;
+                cursor: alias;
+                text-align: center;
+
+                &:hover {
+                    transform: translateY(-10px);
+                    border-color: variables.$color-p;
+                    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+                }
+
+                img {
+                    width: 100%;
+                    height: 70%;
+                    object-fit: cover;
+                }
+
+                .sale {
+                    @include mixins.Sale;
+                }
+
+                h3 {
+                    font-size: 19px;
+                    font-weight: fonts.$font-w;
+                    margin: 1rem 0 0.5rem;
+                    color: #1a1a1a;
+                }
+
+                .price {
+                    @include mixins.Price
+                }
+
+                button {
+                    background-color: #c71e7e;
+                    color: white;
+                    border: none;
+                    width: 156px;
+                    height: 40px;
+                    padding: 10px;
+                    cursor: pointer;
+                    font-weight: fonts.$font-w;
+                    font-family: fonts.$font-f;
+                    font-size: 17px;
+                    transition: all 0.3s ease;
+                }
+            }
+
+        }
+
+        .topBest {
+            max-width: 339px;
+            width: 100%;
+            min-height: 579px;
+            margin-left: 50px;
+            font-family: fonts.$font-f;
+            grid-column: 2/3;
+            grid-row: 2/3;
+
+            &__title {
+                font-weight: fonts.$font-w;
+                font-size: 17px;
+                margin-bottom: 1rem;
+            }
+
+            &__item {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 1.2rem;
+
+                img {
+                    width: 87px;
+                    height: 87px;
+                    object-fit: cover;
+                }
+
+                &>.topBest__info {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.3rem;
+
+                    h3 {
+                        font-size: 15px;
+                        font-weight: fonts.$font-w4;
+                        line-height: 1.4;
+                        color: rgba(0, 0, 0, 1);
+                    }
+
+                    .rating {
+                        color: rgba(245, 180, 35, 1);
+                        font-size: 14px;
+                    }
+
+                    .price {
+                        font-weight: fonts.$font-w4;
+                        font-size: 15px;
+                        color: rgba(0, 0, 0, 1);
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+.search-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    backdrop-filter: blur(2px);
+
+    &.hidden {
+        display: none;
+    }
+
+    .modal-content {
+        background: #fff;
+        padding: 25px 35px;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 18px;
+        font-family: fonts.$font-f;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+        button {
+            @extend %button-standart;
+            margin-top: 15px;
+            background: variables.$color-p;
+            color: #fff;
+            padding: 8px 18px;
+
+            &:hover {
+                background: #b2005a;
+            }
+        }
+    }
+}
+@media (max-width: variables.$breakpoints-pc) {
+  .catalogContainer {
+    &Content {
+      margin: 40px auto;
+      padding: 0 1.5rem;
+      .topBest {
+        max-width: 260px;
+      }
+    }
+  }
+}
+
+
+@media (max-width: variables.$breakpoints-tablet) {
+  .catalogContainer {
+    &Content {
+      grid-template-columns: 1fr;
+      column-gap: 0;
+
+      .catalogControls {
+        flex-wrap: wrap;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+
+      .catalogControls-right {
+        margin-left: auto;
+
+        .sort-select {
+          margin-right: 0;
+        }
+      }
+
+      .catalog-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        justify-items: stretch;
+
+        .catalogProduct-card {
+          max-width: 100%;
+        }
+      }
+
+      .pagination {
+        grid-column: 1 / -1;
+      }
+
+      .topBest {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        margin-left: 0;
+        margin-top: 2rem;
+        grid-column: 1 / -1;
+        grid-row: auto;
+      }
+    }
+  }
+}
+
+@media (max-width: variables.$breakpoints-phone) {
+  .catalogContainer {
+    &Content {
+      margin: 30px auto;
+      padding: 0 1rem;
+
+      .catalogControls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+
+        &-left p {
+          font-size: 14px;
+          text-align: left;
+        }
+
+        &-right {
+          width: 100%;
+          display: flex;
+          gap: 0.75rem;
+          justify-content: space-between;
+
+          .sort-select {
+            flex: 1;
+            font-size: 14px;
+            padding: 6px 10px;
+          }
+
+          .search-box {
+            flex: 1.1;
+
+            input {
+              width: 100%;
+              font-size: 14px;
+              padding: 6px 8px;
+            }
+
+            .search-btn {
+              padding: 6px 8px;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+
+      .catalog-grid {
+        grid-template-columns: 1fr; 
+        gap: 1rem;
+
+        .catalogProduct-card {
+          max-width: 100%;
+          height: auto;
+          padding-bottom: 1rem;
+
+          img {
+            width: 100%;
+            height: auto;
+            max-height: 260px;
+            object-fit: contain;
+          }
+
+          h3 {
+            font-size: 16px;
+          }
+
+          .price {
+            font-size: 15px;
+          }
+
+          button {
+            width: 140px;
+            font-size: 15px;
+          }
+        }
+      }
+
+      .topBest {
+        &__item {
+          img {
+            width: 72px;
+            height: 72px;
+          }
+
+          > .topBest__info {
+            h3 {
+              font-size: 14px;
+            }
+
+            .price {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+
+      .pagination {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+
+        button {
+          font-size: 14px;
+          padding: 6px 12px;
+        }
+
+        .page-numbers .page {
+          padding: 6px 10px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  
+  .search-modal {
+    .modal-content {
+      width: 90%;
+      font-size: 16px;
+    }
+  }
+}

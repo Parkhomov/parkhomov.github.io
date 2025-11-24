@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Best Shop</title>
+    <link rel="stylesheet" href="/dist/css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="catalog-page">
+    <main class="catalogContainer">
+      <section class="catalogContainerContent">
+        <div class="catalogControls">
+          <div class="catalogControls-left">
+            <p id="results-info">Showing 1–12 of 16 results</p>
+          </div>
+          
+          <div class="catalogControls-right">
+            <select class="sort-select" aria-label="Sort products">
+              <option value="default">Default Sorting</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="rating">Rating</option>
+              <option value="popular">Popular</option>
+            </select>
+
+            <div class="search-box">
+              <input
+                type="text"
+                placeholder="Search Models..."
+                aria-label="Search products"
+                id="searchInput"
+              />
+              <button class="search-btn" id="searchBtn">🔍</button>
+            </div>
+          </div>
+        </div>
+        <div id="catalog-container" class="catalog-grid"></div>
+        <div class="pagination">
+          <button class="prev-page">← Prev</button>
+          <div class="page-numbers">
+            <span class="page active">1</span>
+            <span class="page">2</span>
+          </div>
+          <button class="next-page">Next →</button>
+        </div>
+        <div class="topBest">
+          <h2 class="topBest__title">Top Best Sets</h2>
+          <div id="topBest-container"></div>
+        </div>
+      </section>
+    </main>
+    <div id="searchModal" class="search-modal hidden">
+  <div class="modal-content">
+    <p>Product not found</p>
+    <button id="closeSearchModal">OK</button>
+  </div>
+</div>
+
+    <script src="/src/js/main.js"></script>
+    <script src="/src/js/catalog.js"></script>
+    <script src="/src/js/product.js"></script>
+  </body>
+</html>

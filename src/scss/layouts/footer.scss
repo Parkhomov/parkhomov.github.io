@@ -1,0 +1,320 @@
+@use "../base/fonts";
+@use "../abstracts/mixins";
+@use "../abstracts/variables";
+
+.footerContainer {
+  width: 100%;
+  margin-top: 120px;
+  min-height: 721px; 
+
+  .upContent {
+    width: 100%;
+    min-height: 192px;
+    position: relative;
+    background-color: rgba(80, 78, 74, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2.5rem 1.5rem;
+    color: #fff;
+    text-align: left;
+    overflow: hidden;
+  }
+
+  .wave-bg {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: auto;
+    max-height: 192px;
+    opacity: 0.2;
+    z-index: 0;
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+  .wave1 { top: -64px; }
+  .wave2 { top: -32px; }
+  .wave3 { top: 0; }
+  .wave4 { top: 32px; }
+  .wave5 { top: 64px; }
+  .wave6 { top: 90px; }
+
+  .wave1,
+  .wave2,
+  .wave3,
+  .wave4,
+  .wave5,
+  .wave6 {
+    @include mixins.opacity;
+  }
+
+  .benefitsContainer {
+    width: 100%;
+    max-width: 1300px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+  }
+
+  .benefitsTitle {
+    font-weight: fonts.$font-w;
+    font-size: 19px;
+    margin-bottom: 35px;
+    font-family: fonts.$font-f2;
+  }
+
+  .benefitsRow {
+    @include mixins.flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 2rem;
+  }
+
+  .benefit {
+    display: flex;
+    gap: 12px;
+    max-width: 280px;
+    text-align: left;
+
+    img {
+      width: 60px;
+      height: 60px;
+      flex-shrink: 0;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.8;
+      font-family: fonts.$font-f;
+      font-weight: 500;
+    }
+  }
+
+  .otherContent {
+    display: grid;
+    grid-template-columns: repeat(8, auto);
+    grid-template-rows: auto auto;
+    padding: 3rem 5rem;
+    font-family: fonts.$font-f;
+    gap: 1.5rem 2rem;
+
+    &About {
+      grid-column: 2 / 3;
+      z-index: 2;
+    }
+
+    &Interesting {
+      grid-column: 3 / 4;
+    }
+
+    &Achievements {
+      grid-column: 4 / 5;
+    }
+
+    &Shipping {
+      grid-column: 2 / 5;
+      grid-row: 2 / 3;
+    }
+
+    &Contact {
+      grid-column: 5 / 7;
+      grid-row: 1 / 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 1.5rem;
+
+      .contactInfo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem 2rem;
+        align-items: start;
+
+        p {
+          display: flex;
+          align-items: flex-start;
+          gap: 0.5rem;
+
+          img {
+            align-self: center;
+            justify-self: center;
+            width: 25px;
+            height: 25px;
+            margin-top: 3px;
+          }
+        }
+      }
+    }
+
+    a {
+      font-weight: fonts.$font-w;
+      color: black;
+      text-decoration: none;
+      line-height: 2;
+      z-index: 2;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    span {
+      font-weight: fonts.$font-w;
+    }
+
+    p {
+      line-height: 2;
+    }
+  }
+
+  .coop {
+    width: 100%;
+    text-align: center;
+    margin: 20px auto 46px;
+
+    p {
+      color: rgba(0, 0, 0, 0.35);
+      font-family: fonts.$font-f2;
+      font-weight: 400;
+      font-size: 13px;
+    }
+  }
+
+  @media (max-width: variables.$breakpoints-pc) {
+    
+    
+    .otherContent {
+      padding: 3rem 3rem;
+      gap: 1.25rem 1.75rem;
+      text-align: center;
+    }
+
+    .benefit {
+      max-width: 260px;
+      text-align: center;
+    }
+    .contactInfo {
+      justify-items: center;
+    }
+  }
+
+  @media (max-width: variables.$breakpoints-tablet) {
+    margin-top: 80px;
+
+    .upContent {
+      padding-inline: 2rem;
+      text-align: center;
+    }
+
+    .benefitsContainer {
+      align-items: flex-start;
+    }
+
+    .benefitsRow {
+      justify-content: flex-start;
+    }
+
+    .benefit {
+      max-width: calc(50% - 1.5rem);
+    }
+
+    .otherContent {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: auto;
+      padding: 2.5rem 2rem;
+      column-gap: 2rem;
+      row-gap: 1.75rem;
+
+      &About,
+      &Interesting,
+      &Achievements,
+      &Shipping,
+      &Contact {
+        grid-column: auto / auto;
+        grid-row: auto / auto;
+      }
+
+      &Contact {
+        grid-column: 1 / -1;
+
+        .contactInfo {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    }
+  }
+
+  @media (max-width: variables.$breakpoints-phone) {
+    margin-top: 60px;
+
+    .upContent {
+      padding: 2rem 1.5rem 2.5rem;
+      text-align: center;
+      align-items: flex-start;
+    }
+
+    .benefitsTitle {
+      font-size: 17px;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      width: 100%;
+    }
+
+    .benefitsRow {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .benefit {
+      max-width: 100%;
+      justify-content: center;
+
+      img {
+        width: 48px;
+        height: 48px;
+      }
+
+      p {
+        font-size: 14px;
+        text-align: center;
+      }
+    }
+
+    .otherContent {
+      grid-template-columns: 1fr;
+      padding: 2rem 1.25rem;
+      gap: 1.25rem;
+
+      &About,
+      &Interesting,
+      &Achievements,
+      &Shipping,
+      &Contact {
+        grid-column: 1 / -1;
+      }
+
+      &Shipping {
+        p {
+          font-size: 14px;
+        }
+      }
+
+      &Contact {
+        .contactInfo {
+          grid-template-columns: 1fr;
+        }
+      }
+    }
+
+    .coop {
+      margin: 10px auto 24px;
+
+      p {
+        font-size: 12px;
+      }
+    }
+  }
+}

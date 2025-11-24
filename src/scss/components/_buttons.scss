@@ -1,0 +1,7 @@
+@use "../base/fonts";
+%button-standart {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: fonts.$font-f;
+}

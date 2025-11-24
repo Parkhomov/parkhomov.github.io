@@ -1,0 +1,589 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+@use '../base/fonts';
+@use "../components/buttons";
+
+.aboutContainer {
+    width: 100%;
+
+    .aboutImg {
+        position: relative;
+        width: 100%;
+        height: 554px;
+        background-image: url("/src/assets/images/About Us/banner image.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        text-align: center;
+        align-content: center;
+        font-family: fonts.$font-f;
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        h1 {
+            position: relative;
+            z-index: 2;
+            color: rgba(255, 255, 255, 1);
+            font-weight: fonts.$font-w;
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            position: relative;
+            z-index: 2;
+            color: rgba(233, 233, 237, 1);
+            font-size: 17px;
+            font-weight: fonts.$font-w4;
+        }
+    }
+
+    .contentCont {
+        max-width: 1300px;
+        width: 100%;
+        height: auto;
+        margin: 120px auto;
+
+        &First {
+            width: 100%;
+            height: 208px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+            font-family: fonts.$font-f;
+
+            .item {
+                h3 {
+                    font-size: 20px;
+                    font-weight: fonts.$font-w;
+                    margin: 22px 0 23px 0;
+                }
+
+                p {
+                    font-size: 17px;
+                    font-weight: fonts.$font-w4;
+                    line-height: 1.5;
+                }
+            }
+
+            .superior {
+                max-width: 220px;
+                width: 100%;
+            }
+
+            .awards {
+                max-width: 240px;
+                width: 100%;
+            }
+
+            .ecologial {
+                max-width: 256px;
+                width: 100%;
+            }
+
+            .shipping {
+                max-width: 258px;
+                width: 100%;
+            }
+        }
+
+        .newArrivals {
+            width: 100%;
+            min-height: 353px;
+            height: auto;
+            display: flex;
+            margin: 130px auto;
+            font-family: fonts.$font-f;
+            align-items: center;
+            gap: 2rem;
+
+            .leftContent {
+                h1 {
+                    font-size: 40px;
+                    font-weight: fonts.$font-w9;
+                }
+
+                p {
+                    line-height: 1.5;
+                    font-size: 17px;
+                    color: variables.$color-t;
+                }
+
+                .text1 {
+                    margin: 30px auto;
+                }
+
+                .text2 {
+                    margin-bottom: 30px;
+                }
+
+                button {
+                    @extend %button-standart;
+                    width: 200px;
+                    height: 61px;
+                    color: rgba(255, 255, 255, 1);
+                    font-size: fonts.$font-s18;
+                    font-weight: fonts.$font-w;
+                    background-color: variables.$color-p;
+                }
+            }
+
+            .rightContent {
+                img {
+                    display: block;
+                    width: 100%;
+                    max-width: 615px;
+                    height: auto; 
+                }
+            }
+        }
+
+        .ourTeam {
+            width: 100%;
+            min-height: 551px;
+            height: auto;
+            text-align: center;
+            font-family: fonts.$font-f;
+
+            hr {
+                margin: 0 auto;
+                border: 2px solid variables.$color-p;
+                max-width: 440px;
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 40px;
+                font-weight: fonts.$font-w9;
+                margin-bottom: 10px;
+            }
+
+            .team {
+                display: flex;
+                margin-top: 50px;
+                gap: 2.1rem;
+
+                .text {
+                    h3 {
+                        margin: 27px auto;
+                        font-size: 22px;
+                        font-weight: fonts.$font-w;
+                    }
+
+                    p {
+                        font-size: 17px;
+                        font-weight: fonts.$font-w4;
+                    }
+                }
+
+                img {
+                    display: block;
+                    width: 100%;
+                    height: auto; 
+                }
+            }
+        }
+
+        .banner {
+            position: relative;
+            width: 100%;
+            max-width: 1300px;
+            min-height: 407px;
+            height: auto;
+            background-image: url("/src/assets/images/Homepage/offer of the month image.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 130px auto 130px auto;
+            font-family: fonts.$font-f;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            justify-items: center;
+            align-items: center;
+            padding-inline: 2rem;
+
+            box-sizing: border-box;
+
+            &::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background-color: rgba(0, 0, 0, 0.4);
+                z-index: 1;
+            }
+
+            .LeftText {
+                z-index: 2;
+                margin-bottom: 70px;
+                margin-left: 45px;
+
+                h1 {
+                    color: rgba(255, 255, 255, 1);
+                    font-size: 223px;
+                    font-weight: fonts.$font-w9;
+                    line-height: 0.8;
+                }
+
+                p {
+                    color: rgba(255, 255, 255, 1);
+                    font-size: 20px;
+                    font-weight: fonts.$font-w4;
+                }
+            }
+
+            .RightText {
+                z-index: 2;
+                max-width: 380px;
+                width: 100%;
+
+                h2 {
+                    color: rgba(255, 255, 255, 1);
+                    font-weight: fonts.$font-w9;
+                    font-size: 40px;
+                    margin-bottom: 30px;
+                }
+
+                p {
+                    color: rgba(255, 255, 255, 1);
+                    font-size: 17px;
+                    font-weight: fonts.$font-w4;
+                    margin-bottom: 30px;
+                }
+
+                button {
+                    @extend %button-standart;
+                    width: 200px;
+                    height: 60px;
+                    background-color: variables.$color-p;
+                    font-size: 18px;
+                    font-weight: fonts.$font-w;
+                    color: rgba(255, 255, 255, 1);
+                }
+            }
+        }
+
+    }
+}
+
+.contactContainer {
+    width: 100%;
+
+    .contactImg {
+        position: relative;
+        width: 100%;
+        height: 554px;
+        background-image: url("/src/assets/images/Contact Us/banner image.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        text-align: center;
+        align-content: center;
+        font-family: fonts.$font-f;
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        h1 {
+            position: relative;
+            z-index: 2;
+            color: rgba(255, 255, 255, 1);
+            font-weight: fonts.$font-w;
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            position: relative;
+            z-index: 2;
+            color: rgba(233, 233, 237, 1);
+            font-size: 17px;
+            font-weight: fonts.$font-w4;
+        }
+    }
+
+    .contentContainer {
+        max-width: 1300px;
+        width: 100%;
+        height: auto;
+        margin: 120px auto;
+
+        &First {
+            width: 100%;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+            font-family: fonts.$font-f;
+
+            .item {
+                h3 {
+                    font-size: 20px;
+                    font-weight: fonts.$font-w;
+                    margin: 16px 0 23px 0;
+                }
+
+                p {
+                    font-size: 17px;
+                    font-weight: fonts.$font-w4;
+                    line-height: 1.5;
+                }
+            }
+
+            .location {
+                max-width: 216px;
+                width: 100%;
+            }
+
+            .time {
+                max-width: 244px;
+                width: 100%;
+            }
+
+            .email {
+                max-width: 171px;
+                width: 100%;
+            }
+
+            .call {
+                max-width: 115px;
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+@media (max-width: variables.$breakpoints-pc) {
+    .aboutContainer .banner .LeftText h1 {
+        font-size: 190px;
+    }
+
+    .aboutContainer .contentCont,
+    .contactContainer .contentContainer {
+        margin: 100px auto;
+        padding: 0 32px;
+    }
+}
+
+
+@media (max-width: variables.$breakpoints-tablet) {
+
+    .aboutContainer .aboutImg,
+    .contactContainer .contactImg {
+        height: 420px;
+        padding-inline: 16px;
+    }
+
+    .aboutContainer .aboutImg h1,
+    .contactContainer .contactImg h1 {
+        font-size: 42px;
+    }
+
+    .aboutContainer .aboutImg p,
+    .contactContainer .contactImg p {
+        font-size: 16px;
+    }
+
+    .aboutContainer .contentCont,
+    .contactContainer .contentContainer {
+        margin: 80px auto;
+        padding: 0 24px;
+    }
+
+    .aboutContainer .contentContFirst,
+    .contactContainer .contentContainerFirst {
+        height: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .aboutContainer .contentContFirst .item,
+    .contactContainer .contentContainerFirst .item {
+        flex: 0 1 45%;
+    }
+
+    .aboutContainer .newArrivals {
+        height: auto;
+        margin: 80px auto;
+        gap: 2rem;
+    }
+
+    .aboutContainer .ourTeam {
+        height: auto;
+        padding-inline: 24px;
+    }
+
+    .aboutContainer .ourTeam .team {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .aboutContainer .banner {
+        height: auto;
+        padding-block: 60px;
+    }
+
+    .aboutContainer .banner .LeftText {
+        margin-bottom: 40px;
+        margin-left: 0;
+    }
+
+    .aboutContainer .banner .LeftText h1 {
+        font-size: 150px;
+    }
+
+    .aboutContainer .banner .RightText h2 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: variables.$breakpoints-phone) {
+
+    .aboutContainer .aboutImg,
+    .contactContainer .contactImg {
+        height: 360px;
+        padding-inline: 12px;
+    }
+
+    .aboutContainer .aboutImg h1,
+    .contactContainer .contactImg h1 {
+        font-size: 32px;
+        margin-bottom: 12px;
+    }
+
+    .aboutContainer .aboutImg p,
+    .contactContainer .contactImg p {
+        font-size: 15px;
+        padding: 0 10px;
+    }
+
+    .aboutContainer .contentCont,
+    .contactContainer .contentContainer {
+        margin: 60px auto;
+        padding: 0 16px;
+    }
+
+    .aboutContainer .contentContFirst,
+    .contactContainer .contentContainerFirst {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        gap: 1.5rem;
+    }
+
+    .aboutContainer .contentContFirst .item,
+    .contactContainer .contentContainerFirst .item {
+        max-width: 100%;
+    }
+
+    .aboutContainer .contentContFirst .item h3,
+    .contactContainer .contentContainerFirst .item h3 {
+        font-size: 18px;
+    }
+
+    .aboutContainer .contentContFirst .item p,
+    .contactContainer .contentContainerFirst .item p {
+        font-size: 15px;
+    }
+
+    .aboutContainer .newArrivals {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 60px auto;
+    }
+
+    .aboutContainer .newArrivals .leftContent h1 {
+        font-size: 28px;
+    }
+
+    .aboutContainer .newArrivals .leftContent p {
+        font-size: 15px;
+    }
+
+    .aboutContainer .newArrivals .leftContent button {
+        width: 100%;
+        max-width: 260px;
+    }
+
+    .aboutContainer .newArrivals .rightContent img {
+        max-width: 100%;
+    }
+
+    .aboutContainer .ourTeam {
+        padding-inline: 0;
+    }
+
+    .aboutContainer .ourTeam h1 {
+        font-size: 28px;
+    }
+
+    .aboutContainer .ourTeam hr {
+        width: 200px;
+    }
+
+    .aboutContainer .ourTeam .team {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        margin-top: 32px;
+    }
+
+    .aboutContainer .banner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 40px 16px;
+        row-gap: 2rem;
+    }
+
+    .aboutContainer .banner .LeftText {
+        margin: 0;
+    }
+
+    .aboutContainer .banner .LeftText h1 {
+        font-size: 80px;
+    }
+
+    .aboutContainer .banner .LeftText p {
+        font-size: 18px;
+    }
+
+    .aboutContainer .banner .RightText h2 {
+        font-size: 28px;
+    }
+
+    .aboutContainer .banner .RightText p {
+        font-size: 15px;
+    }
+
+    .aboutContainer .banner .RightText button {
+        width: 100%;
+        max-width: 260px;
+    }
+
+    .aboutContainer {
+        .contentCont {
+            .banner {
+                grid-template-columns: 1fr;
+                .LeftText {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}

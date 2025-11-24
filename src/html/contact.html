@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Shop</title>
+    <link rel="stylesheet" href="/dist/css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="contactContainer">
+        <section class="contactImg">
+        <h1>Contact Us</h1>
+        <p>
+          Duis vestibulum elit vel neque pharetra vulputate. <br />Duis rutrum
+          non risus in imperdiet.
+        </p>
+      </section>
+      <section class="contentContainer">
+        <article class="contentContainerFirst">
+          <div class="location item">
+            <img
+              src="/src/assets/images/Contact Us/location.png"
+              alt="location"
+            />
+            <h3>Our Location</h3>
+            <p>
+              1234 NW Bobcat Lane, St. <br />Robert, MO 65584-5678
+            </p>
+          </div>
+          <div class="time item">
+            <img
+              src="/src/assets/images/Contact Us/time.png"
+              alt="time"
+            />
+            <h3>Operating Time</h3>
+            <p>
+             Monday - Friday: 9am - 6 pm <br> Weekends: 10:30 am - 6pm
+            </p>
+          </div>
+          <div class="email item">
+            <img
+              src="/src/assets/images/Contact Us/email.png"
+              alt="email"
+            />
+            <h3>Our Email</h3>
+            <p>
+              best@shop.com <br> info@bestshop.com
+            </p>
+          </div>
+          <div class="call item">
+            <img
+              src="/src/assets/images/Contact Us/call.png"
+              alt="call"
+            />
+            <h3>Call Us</h3>
+            <p>
+              (268)142-8413 <br> (760)265-2917
+            </p>
+          </div>
+      </section>
+      <section class="feedback">
+        <div class="feedback__image">
+          <img src="/src/assets/images/Contact Us/feedback image.jpg" 
+          alt="Travel items in an open suitcase">
+        </div>
+
+        <form class="feedback__form" id="feedback_form">
+          <header class="feedback__header">
+            <h2>Your Feedback Is Much Appreciated!</h2>
+            <p>We will contact you when you complete the following form!</p>
+          </header>
+
+          <div class="feedback__group">
+            <label for="name">Your Name <span>*</span></label>
+            <input id="name" type="text" required>
+          </div>
+
+          <div class="feedback__group">
+            <label for="email">Your Email Address <span>*</span></label>
+            <input id="email" type="text" required>
+            <p id="email-error" class="error-text"></p>
+          </div>
+
+          <div class="feedback__group">
+            <label for="topic">Topic <span>*</span></label>
+            <input id="topic" type="text" required>
+          </div>
+
+          <div class="feedback__group">
+            <label for="message">Your Message <span>*</span></label>
+            <textarea id="message" required></textarea>
+          </div>
+          <p id="success-message" class="success-text"></p>
+          <button type="submit" class="feedback__submit">SEND</button>
+          
+        </form>
+      </section>
+    </main>
+    <script src="/src/js/main.js"></script>
+    <script src="/src/js/contact.js"></script>
+</body>
+</html>

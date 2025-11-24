@@ -1,0 +1,44 @@
+@use "../base/fonts";
+@use "../abstracts/variables";
+@mixin flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+@mixin opacity {
+    opacity: 0.2;
+}
+
+@mixin homeTitle{
+    font-weight: fonts.$font-w9;
+    font-size: 40px;
+    margin-bottom: 0.5rem;
+}
+
+@mixin homeSubTitle {
+    color: variables.$color-t;
+    margin-bottom: 2rem;
+}
+
+@mixin Price {
+    font-size: 17px;
+    font-weight: fonts.$font-w;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+@mixin Sale {
+    position: absolute;
+    align-content: center;
+    width: 54px;
+    height: 28px;
+    top: 10px;
+    left: 10px;
+    background-color: variables.$color-p;
+    color: #fff;
+    font-size: 12px;
+    font-weight: fonts.$font-w;
+    padding: 4px 10px;
+    text-transform: uppercase;
+}

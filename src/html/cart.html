@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Best Shop</title>
+    <link rel="stylesheet" href="/dist/css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="cartContainer">
+      <section class="bannerCart"><h1>My Cart</h1></section>
+      <section class="cart">
+        <div class="cart__table">
+            <div class="cart__header">
+                <span>Image</span>
+                <span>Product Name</span>
+                <span>Price</span>
+                <span>Quantity</span>
+                <span>Total</span>
+                <span>Delete</span>
+            </div>
+        </div>
+        
+        <div class="cart__bottom">
+          <div class="cart__actions">
+            <button class="btn btn--outline">CONTINUE SHOPPING</button>
+            <button class="btn btn--outline">CLEAR SHOPPING CART</button>
+          </div>
+          <div class="cart__summary">
+            <div class="summary-row">
+              <span>Sub Total</span> <span>$0</span>
+            </div>
+            <div class="summary-row">
+                <span>Discount</span>
+                <span>$0</span>
+            </div>
+            <div class="summary-row">
+              <span>Shipping</span> <span>$0</span>
+            </div>
+            <div class="summary-row total">
+              <span>Total</span> <span>$0</span>
+            </div>
+            <button class="btn btn--primary">CHECKOUT</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="/src/js/main.js"></script>
+    <script src="/src/js/cart.js"></script>
+  </body>
+</html>
